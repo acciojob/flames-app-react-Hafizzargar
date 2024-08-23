@@ -90,7 +90,8 @@ const App = () => {
         Clear
       </button>
 
-      <div>{l_value}</div>
+      <div><h3>{l_value}
+        </h3></div>
     </div>
   );
 };
