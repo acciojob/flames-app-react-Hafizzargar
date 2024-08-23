@@ -18,7 +18,7 @@ const App = () => {
   const sub = () => {
     setC(0);
     if (first.trim() === "" || second.trim() === "") {
-      return alert("Enter value");
+      return setLVal("Please Enter valid input");
     }
 
     let count = 0;
