@@ -83,15 +83,15 @@ const App = () => {
         value={second}
         required
       />
-      <button onClick={sub} style={{ color: "#6FC1E2" }}>
+      <button onClick={sub} style={{ color: "#6FC1E2" }} data-testid="calculate_relationship">
         Calculate Relationship Future
       </button>
-      <button onClick={rest} style={{ color: "#6FC1E2" }}>
+      <button onClick={rest} style={{ color: "#6FC1E2" }} data-testid="clear">
         Clear
       </button>
 
-      <div><h3>{l_value}
-        </h3></div>
+      <h3 data-testid="answer">{l_value}
+        </h3>
     </div>
   );
 };
