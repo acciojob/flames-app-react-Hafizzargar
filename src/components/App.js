@@ -1,70 +1,75 @@
-import React, {Component, useState} from "react";
+import React, { useState } from "react";
 import '../styles/App.css';
 
-class App extends Component {
+const App = () => {
+  const [first, setFirst] = useState("");
+  const [second, setSecond] = useState("");
+  const [l_value, setLValue] = useState("");
+  const [c, setC] = useState(0);
 
+  const firs = (e) => {
+    setFirst(e.target.value);
+  };
 
+  const secon = (e) => {
+    setSecond(e.target.value);
+  };
 
-    render() {
-        let [first, setfirst] = useState("");
-        let [second, setsecond] = useState("");
-        let [l_value, setl_value] = useState("");
-        let [c, setc] = useState(0);
-        function firs(e) {
-          return setfirst(e.target.value);
-        }
-        
-        function secon(e) {
-          return setsecond(e.target.value);
-        }
-        function sub() {
-          setc((c = 0));
-          if (first.trim() == "" || second.trim() == "") {
-            return alert("enter value");
-          }
-        
-          for (let i of first.toLowerCase()) {
-            for (let j of second.toLowerCase()) {
-              if (i == j) {
-                setc(c++);
-              }
-            }
-          }
-          console.log(c);
-          if (c >= 6) {
-            setc((c = c % 6));
-            console.log(c, "here it is");
-          }
-          setc((c = c - 1));
-        
-          if (c == 0) {
-            return setl_value("Siblings");
-          } else if (c == 1) {
-            // <div>Friends</div>
-            return setl_value("Friends");
-          } else if (c == 2) {
-            <div>Love</div>;
-            return setl_value("Love");
-          } else if (c == 3) {
-            // <div>Affection</div>
-            return setl_value("Affection");
-          } else if (c == 4) {
-            return setl_value("Marriage");
-          } else if (c == 5) {
-            return setl_value("Enemy");
-          }
-        }
-        function rest() {
-          setc(0);
-          setfirst("");
-          setsecond("");
-          setl_value("");
-        }
+  const sub = () => {
+    setC(0);
+    if (first.trim() === "" || second.trim() === "") {
+      return alert("Enter value");
+    }
 
-        return(
-            <div id="main">
-               {/* Do not remove the main div */}
-               <input
+    let count = 0;
+    for (let i of first.toLowerCase()) {
+      for (let j of second.toLowerCase()) {
+        if (i === j) {
+          count++;
+        }
+      }
+    }
+
+    if (count >= 6) {
+      count = count % 6;
+    }
+    count--;
+
+    switch (count) {
+      case 0:
+        setLValue("Siblings");
+        break;
+      case 1:
+        setLValue("Friends");
+        break;
+      case 2:
+        setLValue("Love");
+        break;
+      case 3:
+        setLValue("Affection");
+        break;
+      case 4:
+        setLValue("Marriage");
+        break;
+      case 5:
+        setLValue("Enemy");
+        break;
+      default:
+        setLValue("");
+    }
+  };
+
+  const rest = () => {
+    setC(0);
+    setFirst("");
+    setSecond("");
+    setLValue("");
+  };
+
+  return (
+    <div id="main">
+      {/* Do not remove the main div */}
+      <input
         type="text"
         placeholder="first_name"
         onChange={firs}
@@ -86,11 +91,10 @@ class App extends Component {
       </button>
 
       <div>{l_value}</div>
-            </div>
-        )
-    }
-}
-
+    </div>
+  );
+};
 
 export default App;
+
 
