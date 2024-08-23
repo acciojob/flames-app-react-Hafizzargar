@@ -54,8 +54,8 @@ const App = () => {
       case 5:
         setLValue("Enemy");
         break;
-      default:
-        setLValue("");
+      // default:
+      //   setLValue("");
     }
   };
 
